@@ -2,20 +2,27 @@
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #65C962;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.5em;
+  font-family: 'Baloo';
+  text-align: center;
 }
 
 .App-intro {
