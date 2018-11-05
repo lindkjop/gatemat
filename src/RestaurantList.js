@@ -32,6 +32,11 @@ const subscription = client.listen(query, params)
 client.listen(query, params, options)
 
 class RestaurantList extends Component {
+
+    toggle = (index, event) => {
+        console.log('You clicked the element at index', index);
+    }
+
     componentDidMount() {
       const self = this;
       client.fetch(query, params).then(res => {
@@ -44,8 +49,8 @@ class RestaurantList extends Component {
       return (
         <div className="RestaurantList">
           { this.state && this.state.restaurants && <ul>{
-            this.state.restaurants.map((restaurant) => {
-              return <Restaurant>{restaurant.name}</Restaurant>
+            this.state.restaurants.map((restaurant, index) => {
+              return <Restaurant toggle={this.toggle.bind(this, index)}>{restaurant.name}</Restaurant>
             })
           }</ul>}
         </div>

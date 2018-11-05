@@ -9,10 +9,8 @@ class Restaurant extends Component {
      render () {
           return (
            <li className="nameBox">
-           {this.props.children}
-            <div onClick={this.onClick} style={{backgroundColor: this.state.color}} 
-       className="clickBox">
-           </div>
+           <span>{this.props.children}</span>
+           <button onClick={this.props.toggle}></button>
           </li>
       );
      }
