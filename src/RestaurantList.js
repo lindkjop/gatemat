@@ -33,8 +33,13 @@ client.listen(query, params, options)
 
 class RestaurantList extends Component {
 
+    // Should use the state to cause a rerender
+    
     toggle = (index, event) => {
-        console.log('You clicked the element at index', index);
+        const restaurants = Object.assign([], this.state.restaurants);
+        restaurants[index].expanded = !restaurants[index].expanded;
+        console.log('You clicked the element at index', index, restaurants[index].expanded);
+        this.setState(restaurants: restaurants);
     }
 
     componentDidMount() {
@@ -50,7 +55,13 @@ class RestaurantList extends Component {
         <div className="RestaurantList">
           { this.state && this.state.restaurants && <ul>{
             this.state.restaurants.map((restaurant, index) => {
-              return <Restaurant toggle={this.toggle.bind(this, index)}>{restaurant.name}</Restaurant>
+              return <Restaurant 
+              expanded = {restaurant.expanded || false}
+              toggle={this.toggle.bind(this, index)}
+              name = {restaurant.name}
+              dishes = {restaurant.dishes}
+              key = {restaurant._id}>
+              </Restaurant>
             })
           }</ul>}
         </div>
